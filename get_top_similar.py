@@ -72,10 +72,3 @@ def get_top_similar(image, n_top = 5):
         image_similarity_score[f"{sub_path}/{file}"] = cos(image_vector, current_image_vector).item()
     image_similarity_score = sorted(image_similarity_score.items(), key=lambda x : x[1], reverse=True)
     return image_similarity_score[:min(len(os.listdir(sub_path)), n_top)]
-
-
-# image = cv2.imread("./AISIA_BOUTIQUE_DATASET/dresses/img_5844921.jpg")
-# image = totensor(image)
-# image = image.to('cuda')
-# tmp = get_top_similar(image, 5)
-# print(tmp)
